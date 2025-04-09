@@ -50,7 +50,7 @@
         required
         id="firstName"
         oninvalid="this.setCustomValidity('First Name is not valid.')"
-        oninput="this.setCustomValidity('')"
+        oninput="checkFirstName()"
         onblur="checkFirstName()" 
         pattern="^[a-zA-Z\s'-]+$"
         > 
