@@ -150,7 +150,7 @@ function checkAddressOne()
       console.log(error_flag);
       }
       else { 
-          document.getElementById("addressMessage").innerHTML = "";  
+          document.getElementById("addressOne_Message").innerHTML = "";  
       }
       console.log(addressOne_message);
     
@@ -405,3 +405,33 @@ function setCookie(cookieName, cookieValue, exdays) {
     }
     return "";
   }
+
+  window.onload = function() {
+    checkCookie();
+  };
+  
+// Start of making the submit button disabled if any flag is active //
+  function checkForErrors() {
+    if (error_flag === 0) {
+        document.getElementById("submit").disabled = false;
+    } else {
+        document.getElementById("submit").disabled = true;
+    }
+}
+function validateForm() {
+    error_flag = 0;  
+
+    checkFirstName();
+    checkLastName();
+    checkMiddle();
+    checkDOB();
+    checkUserName();
+    checkPassword();
+    checkMatch();
+    checkAddressOne();
+    checkAddressTwo();
+    checkcity();
+
+    checkForErrors(); 
+}
+// End of submit button getting disabled//

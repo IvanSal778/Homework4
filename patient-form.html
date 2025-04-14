@@ -17,7 +17,7 @@
 
 </head> 
 <body>
-    <form id="myForm" action="ThanksWebsite.html">
+    <form id="myForm" oninput="validateForm()" action="ThanksWebsite.html">
         <div class="header" id="myHeader">
             <h1 style="text-align: center;">Pasadena Hospital Patient Form
             <br>
@@ -68,7 +68,7 @@
         maxlength="30"
         id="middleInitial"
         onblur="checkMiddle()"
-        oninvalid="this.setCustomValidity('Letters only.')"
+        oninvalid="this.setCustomValidity('Letters only or only one letter')"
         oninput="this.setCustomValidity('')"
         pattern="[A-Za-z]" 
         >
@@ -142,7 +142,7 @@
         required
         >
     </td>
-    <td><span id="addressMessage" class="error-message"></span></td>
+    <td><span id="addressOne_Message" class="error-message"></span></td>
     </td>
 </tr>
 
