@@ -17,18 +17,17 @@ var slider = document.getElementById("painscale");
 var output = document.getElementById("rangedisplay");
 if (slider && output) {
     output.innerHTML = slider.value;
-    slider.oninput = function() {
+    slider.oninput = function () {
         output.innerHTML = this.value;
     };
 }
 
 //start of all validation checks
 
-function setup()
-  {
+function setup() {
     var error_flag = 0;
     console.log(error_flag);
-  }
+}
 
 //start of password validation checks
 
@@ -36,7 +35,7 @@ function checkMatch() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
     var message = document.getElementById("passwordMessage");
-    
+
     if (confirmPassword === "") {
         message.textContent = "";
     } else if (password === confirmPassword) {
@@ -51,16 +50,16 @@ function checkMatch() {
 function validatePassword() {
     var password = document.getElementById("password").value;
     var message = document.getElementById("passwordMessage");
-    var username = document.getElementById("userName").value; 
+    var username = document.getElementById("userName").value;
 
-    
+
     // At least 8 chars, 1 uppercase, 1 lowercase, and 1 number
     var strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    
+
     if (password === "") {
         message.textContent = "";
         return false;
-    } else if (password === username){
+    } else if (password === username) {
         message.textContent = "Password cannot be the same as the username!";
         message.style.color = "red";
         return false;
@@ -69,7 +68,7 @@ function validatePassword() {
         message.textContent = "Strong password!";
         message.style.color = "green";
         return true;
-    } 
+    }
     else {
         message.textContent = "Password must be at least 8 characters with uppercase, lowercase, and numbers";
         message.style.color = "red";
@@ -78,27 +77,27 @@ function validatePassword() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var passwordField = document.getElementById("password");
     var checklist = document.getElementById("passwordChecklist");
-    
+
     var lengthCheck = document.getElementById("lengthCheck");
     var uppercaseCheck = document.getElementById("uppercaseCheck");
     var lowercaseCheck = document.getElementById("lowercaseCheck");
     var numberCheck = document.getElementById("numberCheck");
 
 
-    passwordField.addEventListener("focus", function() {
+    passwordField.addEventListener("focus", function () {
         checklist.style.display = "block"; // Shows up as the checklist when user focuses on the pasword box not the confirm password
     });
 
-    passwordField.addEventListener("blur", function() {
+    passwordField.addEventListener("blur", function () {
         if (passwordField.value === "") {
             checklist.style.display = "none"; // Hides it if password field is empty
         }
     });
 
-    passwordField.addEventListener("input", function() {
+    passwordField.addEventListener("input", function () {
         var password = passwordField.value;
 
         // Checks password conditions dynamically
@@ -112,15 +111,15 @@ document.addEventListener("DOMContentLoaded", function() {
 //end of password validation checks
 
 //start of userName checks
-function checkUserName(){
-    var x= document.getElementById("userName").value;
-    var x= userNameMessage = document.getElementById("userNameMessage");
+function checkUserName() {
+    var x = document.getElementById("userName").value;
+    var x = userNameMessage = document.getElementById("userNameMessage");
 
-    if(x.match(/^[A-Za-z][A-Za-z0-9]{4,19}$/)){
-        userNameMessage.innerHTML=" ";
+    if (x.match(/^[A-Za-z][A-Za-z0-9]{4,19}$/)) {
+        userNameMessage.innerHTML = " ";
     }
-    else{
-        userNameMessage.innerHTML="User name must start with a letter and be at least 5 characters long but not longer than 20"
+    else {
+        userNameMessage.innerHTML = "User name must start with a letter and be at least 5 characters long but not longer than 20"
     }
 }
 //end of userName checks
@@ -128,109 +127,105 @@ function checkUserName(){
 //start of check for city
 function checkcity() {
     if (document.getElementById("city").value.match(/^[ a-zA-Z3-5'-]+$/)) {
-         document.getElementById("city_message").innerHTML = "";  
-       }
-       else  {
-         document.getElementById("city_message").innerHTML = "Invalid characters in City name.";
-         error_flag = 1;
-         }
-        }
+        document.getElementById("city_message").innerHTML = "";
+    }
+    else {
+        document.getElementById("city_message").innerHTML = "Invalid characters in City name.";
+        error_flag = 1;
+    }
+}
 
 //end of check for city 
 
 //start of check for address1
-function checkAddressOne() 
-{
+function checkAddressOne() {
     x = document.getElementById("addressOne").value;
     console.log(x.value);
     console.log(x.length);
-    if (x.length < 2 ) {  
-      document.getElementById("addressMessage").innerHTML = "Enter at least two characters on address line One";  
-      error_flag = 1; 
-      console.log(error_flag);
-      }
-      else { 
-          document.getElementById("addressOne_Message").innerHTML = "";  
-      }
-      console.log(addressOne_message);
-    
+    if (x.length < 2) {
+        document.getElementById("addressMessage").innerHTML = "Enter at least two characters on address line One";
+        error_flag = 1;
+        console.log(error_flag);
+    }
+    else {
+        document.getElementById("addressOne_Message").innerHTML = "";
+    }
+    console.log(addressOne_message);
+
 }
 //end of check for address1 
 
 //start of check for address2
-function checkAddressTwo() 
-{
+function checkAddressTwo() {
     x = document.getElementById("addressTwo").value;
     console.log(x.value);
     console.log(x.length);
-    if (x.length < 2 ) {  
-      document.getElementById("addressTwoMessage").innerHTML = "Enter at least two characters on address line Two";  
-      error_flag = 1; 
-      console.log(error_flag);
-      }
-      else { 
-          document.getElementById("addressTwoMessage").innerHTML = "";  
-      }
-      console.log(addressOne_message);
-    
+    if (x.length < 2) {
+        document.getElementById("addressTwoMessage").innerHTML = "Enter at least two characters on address line Two";
+        error_flag = 1;
+        console.log(error_flag);
+    }
+    else {
+        document.getElementById("addressTwoMessage").innerHTML = "";
+    }
+    console.log(addressOne_message);
+
 }
 //end of check for address2
 
 //start of check for first name
-    function checkFirstName() {
-        var x = document.getElementById("firstName").value;
-        if (x.length < 2) { 
-            document.getElementById("firstNameMessage").innerHTML = "Invalid first name too short.";  
-            error_flag = 1;
+function checkFirstName() {
+    var x = document.getElementById("firstName").value;
+    if (x.length < 2) {
+        document.getElementById("firstNameMessage").innerHTML = "Invalid first name too short.";
+        error_flag = 1;
+    }
+    else {
+        if (x.match(/^[a-zA-Z\s'-]+$/)) {
+            document.getElementById("firstNameMessage").innerHTML = "";
+            setCookie("firstNameCookie", x, 1);
+
         }
         else {
-            if (x.match(/^[a-zA-Z\s'-]+$/)) {
-                document.getElementById("firstNameMessage").innerHTML = ""; 
-                setCookie("firstNameCookie", x , 1);
- 
-            }   
-            else {
-                document.getElementById("firstNameMessage").innerHTML = "Invalid characters in name.";
-                error_flag = 1;
-            }
+            document.getElementById("firstNameMessage").innerHTML = "Invalid characters in name.";
+            error_flag = 1;
         }
     }
+}
 // end of check for first name
 
 //start of check of middle name
-function checkMiddle()
-    {
-        x = document.getElementById("middleInitial").value;
-        if( x.length>0) { 
-              if (x.match(/[a-zA-Z ]/)) {
-              document.getElementById("middleNameMessage").innerHTML = "";  
-            }
-            else  {
-              document.getElementById("middleNameMessage").innerHTML = "Invalid characters in middle name.";
-              error_flag = 1;
-              }
+function checkMiddle() {
+    x = document.getElementById("middleInitial").value;
+    if (x.length > 0) {
+        if (x.match(/[a-zA-Z ]/)) {
+            document.getElementById("middleNameMessage").innerHTML = "";
+        }
+        else {
+            document.getElementById("middleNameMessage").innerHTML = "Invalid characters in middle name.";
+            error_flag = 1;
         }
     }
+}
 //end of middle name check
 
 //start of check of lastname
-function checkLastName()
-    {
-        x = document.getElementById("lastName").value;
-        if( x.length<2) { 
-              document.getElementById("lastNameMessage").innerHTML = "Invalid last name too short.";
-              error_flag = 1;  
+function checkLastName() {
+    x = document.getElementById("lastName").value;
+    if (x.length < 2) {
+        document.getElementById("lastNameMessage").innerHTML = "Invalid last name too short.";
+        error_flag = 1;
+    }
+    else {
+        if (x.match(/[a-zA-Z3-5'-]+$/)) {
+            document.getElementById("lastNameMessage").innerHTML = "";
         }
         else {
-            if (x.match(/[a-zA-Z3-5'-]+$/)) {
-              document.getElementById("lastNameMessage").innerHTML = "";  
-            }
-            else  {
-              document.getElementById("lastNameMessage").innerHTML = "Invalid characters in last name.";
-              error_flag = 1;
-              }
+            document.getElementById("lastNameMessage").innerHTML = "Invalid characters in last name.";
+            error_flag = 1;
         }
     }
+}
 //end of lastname check
 
 //start of dob check
@@ -250,7 +245,7 @@ function checkDOB() {
 
     var age = today.getFullYear() - dob.getFullYear();
     var month = today.getMonth() - dob.getMonth();
-    
+
     if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
         age--; // Adjust if the birthday hasn't happened yet this year
     }
@@ -283,19 +278,19 @@ function checkDOB() {
 function showPassword() {
     var x = document.getElementById("password");
     if (x.type === "password") {
-      x.type = "text";
+        x.type = "text";
     } else {
-      x.type = "password";
+        x.type = "password";
     }
-  }
+}
 
 
-  function getdata1() {
+function getdata1() {
     console.log("Get Data button clicked!")
     var formcontents = document.getElementById("myForm");
-    
-    var formoutput = "<table border='1'><tr><th>Name of Data</th><th>Type</th><th>Current Value</th></tr>"; 
-    
+
+    var formoutput = "<table border='1'><tr><th>Name of Data</th><th>Type</th><th>Current Value</th></tr>";
+
     var datatype;
     var i;
 
@@ -306,7 +301,7 @@ function showPassword() {
 
     // Loop through form contents
     for (i = 0; i < formcontents.elements.length; i++) {
-        console.log("item: "+i+" "+formcontents.elements[i].name+" = "+formcontents.elements[i].value);
+        console.log("item: " + i + " " + formcontents.elements[i].name + " = " + formcontents.elements[i].value);
 
         // If input has value (and it's not empty)
         if (formcontents.elements[i].value !== "") {
@@ -317,7 +312,7 @@ function showPassword() {
                     if (formcontents.elements[i].checked) {
                         let label = document.querySelector(`label[for="${formcontents.elements[i].id}"]`);
                         let labelText = label ? label.textContent.trim() : formcontents.elements[i].value;
-                        
+
                         formoutput += `<tr><td>${formcontents.elements[i].name}</td>`;
                         formoutput += `<td>${datatype}</td>`;
                         formoutput += `<td>${labelText} (Checked)</td></tr>`;
@@ -332,9 +327,9 @@ function showPassword() {
                     break;
                 case "button":
                 case "submit":
-                case "reset":     
-                break;
-                
+                case "reset":
+                    break;
+
                 default:
                     formoutput += "<tr><td>" + formcontents.elements[i].name + "</td>";
                     formoutput += "<td>" + datatype + "</td>";
@@ -347,7 +342,7 @@ function showPassword() {
     formoutput += "</table>";
 
     var outputDiv = document.getElementById("outputformdata");
-    
+
     if (outputDiv) {
         outputDiv.innerHTML = formoutput;
     } else {
@@ -357,7 +352,7 @@ function showPassword() {
 
 window.getdata1 = getdata1;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var getDataButton = document.getElementById("getdata");
     if (getDataButton) {
         getDataButton.addEventListener("click", getdata1);
@@ -370,48 +365,44 @@ document.addEventListener("DOMContentLoaded", function() {
 function setCookie(cookieName, cookieValue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
+    let expires = "expires=" + d.toUTCString();
     document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-  }
+}
 
-  function checkCookie() 
-  {
+function checkCookie() {
     let message;
     let firstNameCookie = getCookie("firstNameCookie");
-    if (firstNameCookie != "") 
-      {
-        message = "Welcome back "+ firstNameCookie + ".\nPress OK to confirm or Cancel if this isn't "+firstNameCookie+".";
-        if (confirm(message)) 
-          {
-           document.getElementById("firstName").setAttribute('value',firstNameCookie);
-          }
-        else
-          {
-            setCookie("firstNameCookie", "" , 0);  
-          } 
-      }
-  }
-  function getCookie(cookieName) {
+    if (firstNameCookie != "") {
+        message = "Welcome back " + firstNameCookie + ".\nPress OK to confirm or Cancel if this isn't " + firstNameCookie + ".";
+        if (confirm(message)) {
+            document.getElementById("firstName").setAttribute('value', firstNameCookie);
+        }
+        else {
+            setCookie("firstNameCookie", "", 0);
+        }
+    }
+}
+function getCookie(cookieName) {
     let name = cookieName + "=";
     let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
     return "";
-  }
+}
 
-  window.onload = function() {
+window.onload = function () {
     checkCookie();
-  };
-  
+};
+
 // Start of making the submit button disabled if any flag is active //
-  function checkForErrors() {
+function checkForErrors() {
     if (error_flag === 0) {
         document.getElementById("submit").disabled = false;
     } else {
@@ -419,7 +410,7 @@ function setCookie(cookieName, cookieValue, exdays) {
     }
 }
 function validateForm() {
-    error_flag = 0;  
+    error_flag = 0;
 
     checkFirstName();
     checkLastName();
@@ -431,7 +422,6 @@ function validateForm() {
     checkAddressOne();
     checkAddressTwo();
     checkcity();
-
-    checkForErrors(); 
+    checkForErrors();
 }
 // End of submit button getting disabled//
