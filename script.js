@@ -366,22 +366,29 @@ function setCookie(cookieName, cookieValue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires=" + d.toUTCString();
-    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+    document.cookie = cookieName + "=" + encodeURIComponent(cookieValue) + ";" + expires + ";path=/;SameSite=Strict";
 }
 
 function checkCookie() {
-    let message;
     let firstNameCookie = getCookie("firstNameCookie");
     if (firstNameCookie != "") {
-        message = "Welcome back " + firstNameCookie + ".\nPress OK to confirm or Cancel if this isn't " + firstNameCookie + ".";
-        if (confirm(message)) {
-            document.getElementById("firstName").setAttribute('value', firstNameCookie);
-        }
-        else {
+        document.getElementById("popupMessage").textContent = "Welcome back " + firstNameCookie + 
+            ".\nPress OK to confirm or Cancel if this isn't " + firstNameCookie + ".";
+        
+        document.getElementById("customPopup").style.display = "block";
+        
+        document.getElementById("popupConfirm").onclick = function() {
+            document.getElementById("firstName").value = firstNameCookie;
+            document.getElementById("customPopup").style.display = "none";
+        };
+        
+        document.getElementById("popupCancel").onclick = function() {
             setCookie("firstNameCookie", "", 0);
-        }
+            document.getElementById("customPopup").style.display = "none";
+        };
     }
 }
+
 function getCookie(cookieName) {
     let name = cookieName + "=";
     let ca = document.cookie.split(';');
@@ -391,15 +398,21 @@ function getCookie(cookieName) {
             c = c.substring(1);
         }
         if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+            return decodeURIComponent(c.substring(name.length, c.length));
         }
     }
     return "";
 }
 
+function deleteCookie(cookieName) {
+    setCookie(cookieName, "", -1);
+}
+
 window.onload = function () {
     checkCookie();
 };
+//End of cookies code//
+
 
 // Start of making the submit button disabled if any flag is active //
 function checkForErrors() {
