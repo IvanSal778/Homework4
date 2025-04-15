@@ -172,7 +172,7 @@ td{
   
   .cookie-modal-footer {
     padding: 15px 20px;
-    background-color: #f8f9fa;
+    background-color: #000000;
     border-top: 1px solid #e9ecef;
     text-align: right;
     border-bottom-left-radius: 5px;
@@ -190,12 +190,12 @@ td{
   
   .cookie-confirm-button {
     background-color: #4CAF50;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   .cookie-cancel-button {
     background-color: #f44336;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   /* Animations */
