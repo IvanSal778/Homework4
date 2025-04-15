@@ -1,5 +1,133 @@
-/*Start of  modal code */
-.modal {
+/* Author: Ivan Salinas */
+/* Created Date: 1/27/25*/
+/* Edited Date 3/24/25 */
+
+
+body {  
+    background-color: rgb(3, 69, 110);  
+    font-family: 'Times New Roman', Times, serif;  
+    color: rgb(255, 255, 255);  
+    position: relative;
+
+    
+   
+}
+
+h1{
+    background-color: aquamarine;
+    color: black;
+    margin: 0;
+    padding: 0;
+    
+    
+
+}
+
+p {  
+    font-weight: bolder;  
+}
+
+img {  
+    position: absolute;  
+    top: 0px;    
+    left: 0px;    
+    width: 100px !important;   
+    height: auto;
+}
+
+.checkBoxes{  
+    margin-right: 10px;   
+    vertical-align: middle; 
+    width: 50%;  
+}
+
+
+td label {  
+    margin-right: 5px;   
+}
+
+
+hr {  
+    border: 1px solid rgb(255, 0, 4); 
+     
+}
+
+#footer{
+    background-color: aquamarine;
+    color: black;
+    z-index: -1;
+    
+}
+
+#heart-icon {
+    position: relative;
+    bottom: 1%;
+    left: 93%;
+    width: 115px;        /* Set width */
+}
+
+input.invalid {
+    border: 2px solid red;
+}
+
+input.valid {
+    border: 2px solid green;
+}
+
+#nameMessage {
+    display: inline-block;
+    width: 100%;  
+    word-wrap: break-word;
+}
+
+#dobErrorMessage{
+    display: inline-block;
+    width: 100%;  
+    word-wrap: break-word;
+}
+
+#addressOneMessage{
+    display: inline-block;
+    width: 100%;  
+    word-wrap: break-word;
+}
+
+
+
+/*.explainSymptoms{
+    width: 5%;
+
+}
+*/
+
+
+/*
+.pleaseExplainSymptoms{
+    width: 20% ;
+}
+*/
+
+
+td{
+    table-layout: auto;
+    width: 200px;
+    padding: 2px;
+    /*background-color: rgb(110, 108, 108);    I use this to see the box size at all times dont forget to disable and enable when working on the code    */
+}
+
+.error-message {
+    color: rgb(154, 2, 2);
+    font-weight:bold;
+}
+
+.header{
+    position:sticky;
+    top:0 ;
+    
+}
+
+/*Start of modal code*/
+.cookie-modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -8,10 +136,10 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s;
+    animation: cookieFadeIn 0.3s;
   }
   
-  .modal-content {
+  .cookie-modal-content {
     position: relative;
     background-color: #fefefe;
     margin: 15% auto;
@@ -21,10 +149,10 @@
     max-width: 500px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    animation: slideDown 0.4s;
+    animation: cookieSlideDown 0.4s;
   }
   
-  .modal-header {
+  .cookie-modal-header {
     padding: 15px 20px;
     background-color: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
@@ -32,17 +160,17 @@
     border-top-right-radius: 5px;
   }
   
-  .modal-header h2 {
+  .cookie-modal-header h2 {
     margin: 0;
     font-size: 1.25rem;
     color: #333;
   }
   
-  .modal-body {
+  .cookie-modal-body {
     padding: 20px;
   }
   
-  .modal-footer {
+  .cookie-modal-footer {
     padding: 15px 20px;
     background-color: #f8f9fa;
     border-top: 1px solid #e9ecef;
@@ -51,7 +179,7 @@
     border-bottom-right-radius: 5px;
   }
   
-  .modal-button {
+  .cookie-modal-button {
     padding: 8px 16px;
     margin-left: 10px;
     border: none;
@@ -60,23 +188,23 @@
     font-weight: 500;
   }
   
-  .confirm-button {
+  .cookie-confirm-button {
     background-color: #4CAF50;
     color: white;
   }
   
-  .cancel-button {
+  .cookie-cancel-button {
     background-color: #f44336;
     color: white;
   }
   
   /* Animations */
-  @keyframes fadeIn {
+  @keyframes cookieFadeIn {
     from {opacity: 0}
     to {opacity: 1}
   }
   
-  @keyframes slideDown {
+  @keyframes cookieSlideDown {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
   }

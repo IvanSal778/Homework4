@@ -371,7 +371,7 @@ function setCookie(cookieName, cookieValue, exdays) {
 
 function checkCookie() {
     let firstNameCookie = getCookie("firstNameCookie");
-    if (firstNameCookie != "") {
+    if (firstNameCookie != "" && document.getElementById("popupMessage") && document.getElementById("customPopup")) {
         document.getElementById("popupMessage").textContent = "Welcome back " + firstNameCookie + 
             ".\nPress OK to confirm or Cancel if this isn't " + firstNameCookie + ".";
         
