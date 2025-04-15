@@ -127,7 +127,7 @@ td{
 }
 
 /*Start of modal code*/
-.cookie-modal {
+.cookieModal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -139,7 +139,7 @@ td{
     animation: cookieFadeIn 0.4s;
   }
   
-  .cookie-modal-content {
+  .cookieModalContent {
     position: relative;
     background-color: #000000;
     margin: 15% auto;
@@ -152,25 +152,25 @@ td{
     animation: cookieSlideDown 0.4s;
   }
   
-  .cookie-modal-header {
+  .cookieModalHeader {
     padding: 15px 20px;
-    background-color: #0b0b0b;
-    border-bottom: 1px solid #004182;
+    background-color: #000077;
+    border-bottom: 1px solid #ffffff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
   
-  .cookie-modal-header h2 {
+  .cookieModalHeader h2 {
     margin: 0;
     font-size: 1.25rem;
-    color: #333;
+    color: #ffffff;
   }
   
-  .cookie-modal-body {
+  .cookieModalBody {
     padding: 20px;
   }
   
-  .cookie-modal-footer {
+  .cookieModalFooter {
     padding: 15px 20px;
     background-color: #000000;
     border-top: 1px solid #e9ecef;
@@ -179,7 +179,7 @@ td{
     border-bottom-right-radius: 5px;
   }
   
-  .cookie-modal-button {
+  .cookieModalButton {
     padding: 8px 16px;
     margin-left: 10px;
     border: none;
@@ -188,12 +188,12 @@ td{
     font-weight: 500;
   }
   
-  .cookie-confirm-button {
+  .cookieConfirmButton {
     background-color: #4CAF50;
     color: rgb(0, 0, 0);
   }
   
-  .cookie-cancel-button {
+  .cookieCancelButton {
     background-color: #f44336;
     color: rgb(0, 0, 0);
   }
